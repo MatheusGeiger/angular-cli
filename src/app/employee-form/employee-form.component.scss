@@ -1,0 +1,80 @@
+// Base Rules
+@import "../app.component.scss";
+
+/*
+|--------------------------------------------------------------------------
+| Variables
+|--------------------------------------------------------------------------
+*/
+
+$VALID-FIELD:#42A948;
+$INVALID-FIELD:#a94442;
+$BACKGROUND-COLOR-FORM: #00B4E4;
+
+/*
+|--------------------------------------------------------------------------
+| Custom Form
+|--------------------------------------------------------------------------
+*/ 
+
+input.ng-valid {
+    border-left: 3px solid $VALID-FIELD;
+}
+  
+.ng-invalid:not(form)  {
+    border-left: 3px solid $INVALID-FIELD;
+}
+
+.btn-send{
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: $BACKGROUND-COLOR-FORM;
+}
+
+.form-group {
+    > input, > button {
+        min-height: 38px;
+    }
+}
+.no-radius {
+    border-radius: 0;
+}
+
+.jumbotron {
+    background-color: $BACKGROUND-COLOR-FORM;
+}
+
+.action-form-alert {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    transition: all linear 3s;
+}
+/*
+|--------------------------------------------------------------------------
+| Tablet
+|--------------------------------------------------------------------------
+*/ 
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+
+    .centered-items, .btn-send-container{
+        margin: 0 auto;
+        align-items: center;
+        justify-content: space-around;
+        display: flex;
+        float: none;
+        .btn-send-container {
+            padding-left: 0px;
+        }
+    }
+
+    .col-md-3{
+        padding-right: 0px;
+    }
+
+    .form-group {
+        margin-bottom: 0px;
+    }
+}

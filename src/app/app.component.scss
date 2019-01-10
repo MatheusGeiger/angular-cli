@@ -1,0 +1,46 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+/* 
+|--------------------------------------------------------------------------
+| BREAKPOINTS
+|--------------------------------------------------------------------------
+*/
+
+// Usage example:  @media #{$media-tablet}
+
+$BREAKPOINT-DESK: 		        "only screen and (min-width: 1280px)";
+$BREAKPOINT-TABLET-LAND: 	    "only screen and (min-width: 960px)"; 
+$BREAKPOINT-TABLET: 		    "only screen and (min-width: 600px)"; 
+$BREAKPOINT-MOBILE-LAND: 		"only screen and (min-width: 480px)";
+
+/* 
+|--------------------------------------------------------------------------
+| COMMON
+|--------------------------------------------------------------------------
+*/
+
+.employees-information {
+    padding-top: 15px;
+}
+
+.data-not-available {
+    text-align: center;
+    color: #cecece;
+    padding-top: 25px;
+}
+
+.spin-alert {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #29b4e4;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    float: right;
+    margin: 2px 0px 0px 5px; 
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

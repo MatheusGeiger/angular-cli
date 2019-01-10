@@ -1,0 +1,17 @@
+<section id="donut-chart">
+  <ng-template *ngIf="doughnutChartData.length >= 1; then showData; else showNoData"></ng-template>
+  <ng-template #showData>
+    <div id="showData" class="col-md-6">
+      <div style="display: block">
+        <canvas #chart="base-chart" baseChart [data]="doughnutChartData" [chartType]="doughnutChartType" [labels]="doughnutChartLabels"
+          [options]="doughnutChartOptions">
+        </canvas>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #showNoData>
+    <div id="showNoData" class="col-md-12 data-not-available">
+      <p>No Data Available to Show Chart</p>
+    </div>
+  </ng-template>
+</section>

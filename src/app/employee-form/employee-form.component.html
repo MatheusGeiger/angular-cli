@@ -1,0 +1,46 @@
+<section id="form-employee">
+    <div class="jumbotron">
+        <div class="container">
+            <div id="successSubmited" *ngIf="successSubmited" class="alert alert-success action-form-alert" role="alert">
+                Employee created with success =)
+            </div>
+            <div id="errorSubmited" *ngIf="errorSubmited && !severalErrorSubmited" class="alert alert-danger action-form-alert" role="alert">
+                One error ocurred =( Trying again, attempts: {{attemptsToPostEmployees}} of 3
+                <div class="spin-alert"></div>
+            </div>
+            <div id="severalError" *ngIf="severalErrorSubmited" class="alert alert-danger action-form-alert" role="alert">
+                All attempts have failed, try again later
+            </div>
+            <div class="row">
+                <div class="col-md-12 offset-md-3">
+                    <form class="col-md-10 centered-items" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+                        <div class="col-md-3 form-group">
+                            <input id="firstName-input" placeholder="First Name" type="text" formControlName="firstName" class="form-control no-radius"
+                                [ngClass]="{ 'is-invalid': submitted && form.firstName.errors }" />
+                            <div *ngIf="submitted && form.firstName.errors" class="alert alert-danger">
+                                <div *ngIf="form.firstName.errors.required">First Name is required</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <input id="lastName-input" placeholder="Last Name" type="text" formControlName="lastName" class="form-control no-radius"
+                                [ngClass]="{ 'is-invalid': submitted && form.lastName.errors }" />
+                            <div *ngIf="submitted && form.lastName.errors" class="alert alert-danger">
+                                <div *ngIf="form.lastName.errors.required">Last Name is required</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <input  id="participation-input" placeholder="Participation" type="number" min="1" max="100" formControlName="participation"
+                                class="form-control no-radius" [ngClass]="{ 'is-invalid': submitted && form.participation.errors }" />
+                            <div *ngIf="submitted && form.participation.errors" class="alert alert-danger">
+                                <div *ngIf="form.participation.errors.required">Participation is required</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 form-group btn-send-container">
+                            <button id="button-send-form" class="btn btn-primary col-xs-12 col-md-8 no-radius btn-send" [disabled]="!employeeForm.valid">SEND</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
