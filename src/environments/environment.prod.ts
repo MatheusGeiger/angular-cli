@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  employeeApiHost: 'http://localhost:3001'
 };

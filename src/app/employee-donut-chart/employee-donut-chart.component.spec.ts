@@ -74,4 +74,11 @@ describe('EmployeeDonutChartComponent', () => {
     expect(component.doughnutChartLabels).toEqual([employees[0].firstName + ' ' + employees[0].lastName]);
   });
 
+  it('#reloadChart', () => {
+    component.doughnutChartData = [employees[0].participation];
+    component.doughnutChartLabels = [employees[0].firstName + ' ' + employees[0].lastName];
+    component.reloadChart();
+    // TODO create test from this function
+  });
+
 });

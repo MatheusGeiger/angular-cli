@@ -4,6 +4,7 @@ import { Observable, BehaviorSubject, Subject, merge, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, shareReplay } from 'rxjs/operators';
 import { Employee } from './employee';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ import { Employee } from './employee';
 
 export class EmployeeService {
 
-  private apiUrlEmployee = 'http://localhost:3001/api/employees/';
-  private apiUrlUser = 'http://localhost:3001/api/users/';
+  private apiUrlEmployee = environment.employeeApiHost + '/api/employees/';
+  private apiUrlUser = environment.employeeApiHost + '/api/users/';
   private _id = '5c31076471b3ba004f7811bd';
   private username = 'matheus';
   private password = '1234';
