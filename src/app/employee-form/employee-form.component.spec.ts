@@ -57,9 +57,9 @@ describe('EmployeeFormComponent', () => {
     });
     expect(component.submitted).toBeFalsy();
     expect(component.attemptsToPostEmployees).toEqual(1);
-  })
+  });
 
-  it("#hideMessage", fakeAsync(() => {
+  it('#hideMessage', fakeAsync(() => {
     component.errorSubmited = true;
     component.successSubmited = true;
     component.hideMessage();
@@ -68,7 +68,7 @@ describe('EmployeeFormComponent', () => {
     expect(component.successSubmited).toBeFalsy();
   }));
 
-  it("#showSeveralErrorsAlertAndClearTentatives", fakeAsync(() => {
+  it('#showSeveralErrorsAlertAndClearTentatives', fakeAsync(() => {
     component.attemptsToPostEmployees = 2;
     component.severalErrorSubmited = false;
     component.showSeveralErrorsAlertAndClearTentatives();
@@ -79,7 +79,7 @@ describe('EmployeeFormComponent', () => {
     expect(component.severalErrorSubmited).toBeFalsy();
   }));
 
-  it("#emmitEventPostEmployee", () => {
+  it('#emmitEventPostEmployee', () => {
     injector = getTestBed();
     service = injector.get(EmployeeService);
     component.emmitEventPostEmployee(valuesForm);
@@ -89,25 +89,25 @@ describe('EmployeeFormComponent', () => {
   });
 
   describe('#onSubmit', () => {
-    it("Invalid Form", () => {
-      expect(component.onSubmit()).toBeUndefined;
+    it('Invalid Form', () => {
+      expect(component.onSubmit()).toBeUndefined();
     });
 
-    it("Valid Form", () => {
+    it('Valid Form', () => {
       component.employeeForm.setValue(valuesForm);
-      let spyPostEmployee = spyOn(component, "postEmployee");
+      const spyPostEmployee = spyOn(component, 'postEmployee');
       component.onSubmit();
       expect(spyPostEmployee).toHaveBeenCalled();
     });
   });
 
   describe('#postEmployee', () => {
-    it("Valid Success in API", () => {
+    it('Valid Success in API', () => {
       injector = getTestBed();
       service = injector.get(EmployeeService);
       httpMock = injector.get(HttpTestingController);
-      let spyhideMessage = spyOn(component, "hideMessage");
-      let spycleanForm = spyOn(component, "cleanForm");
+      const spyhideMessage = spyOn(component, 'hideMessage');
+      const spycleanForm = spyOn(component, 'cleanForm');
 
       component.employeeForm.setValue(valuesForm);
       component.postEmployee();
@@ -128,12 +128,12 @@ describe('EmployeeFormComponent', () => {
 
   describe('#postEmployee API - Requests', () => {
 
-    let arrayStatus = [401, 403]
+    const arrayStatus = [401, 403];
 
     for (let index = 0; index < arrayStatus.length; index++) {
       const statusError = arrayStatus[index];
 
-      it("Invalid Success in API - status" + statusError, () => {
+      it('Invalid Success in API - status' + statusError, () => {
         injector = getTestBed();
         service = injector.get(EmployeeService);
         httpMock = injector.get(HttpTestingController);
@@ -145,6 +145,6 @@ describe('EmployeeFormComponent', () => {
         expect(req.request.method).toBe('POST');
         req.error(new ErrorEvent('token failed authorization'), { status: statusError });
       });
-    };
+    }
   });
 });

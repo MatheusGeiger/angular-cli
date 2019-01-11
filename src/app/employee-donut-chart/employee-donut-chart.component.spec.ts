@@ -67,7 +67,7 @@ describe('EmployeeDonutChartComponent', () => {
   });
 
   it('new employee in observable', () => {
-    let spyreloadChart = spyOn(component, 'reloadChart');
+    const spyreloadChart = spyOn(component, 'reloadChart');
     service.statusPostEmployee.next(employees[0]);
     expect(spyreloadChart).toHaveBeenCalled();
     expect(component.doughnutChartData).toEqual([employees[0].participation]);

@@ -2,32 +2,32 @@ import { browser, by, element } from 'protractor';
 
 export class AppPage {
 
-  getBrowser(){
+  getBrowser() {
     return browser;
   }
-  
+
   navigateTo() {
     return browser.get('/');
   }
-  
+
   // Form component functions
   getFormComponent() {
     return element(by.id('form-employee'));
   }
 
-  getFirstNameField(){
+  getFirstNameField() {
     return element(by.id('firstName-input'));
   }
 
-  getLastNameField(){
+  getLastNameField() {
     return element(by.id('lastName-input'));
   }
 
-  getParticipationField(){
+  getParticipationField() {
     return element(by.id('participation-input'));
   }
 
-  getBtnSend(){
+  getBtnSend() {
     return element(by.id('button-send-form'));
   }
 
@@ -35,12 +35,12 @@ export class AppPage {
   getDescriptionPageComponent() {
     return element(by.id('description-page'));
   }
-  
+
   // Table component functions
   getTableComponent() {
     return element(by.id('list-employee'));
   }
-  
+
   // Donut component functions
   getDonutComponent() {
     return element(by.id('donut-chart'));

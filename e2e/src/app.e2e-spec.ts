@@ -47,6 +47,15 @@ describe('App', () => {
       page.getLastNameField().sendKeys('last name');
       expect(page.getBtnSend().isEnabled()).toBeFalsy();
     });
+
+    it('should has values in two fields and invalid participation value then button is disable', () => {
+      page.navigateTo();
+      page.getFirstNameField().sendKeys('first name');
+      page.getLastNameField().sendKeys('last name');
+      page.getParticipationField().sendKeys(120);
+      expect(page.getBtnSend().isEnabled()).toBeFalsy();
+    });
+
   });
 
   describe('Description Page Component', () => {
@@ -58,11 +67,6 @@ describe('App', () => {
 
   describe('Table Component', () => {
     it('should has table component', () => {
-      page.navigateTo();
-      expect(page.getTableComponent()).toBeTruthy();
-    });
-
-    it('should has noDataMensage when api no has employee', () => {
       page.navigateTo();
       expect(page.getTableComponent()).toBeTruthy();
     });

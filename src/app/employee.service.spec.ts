@@ -23,8 +23,8 @@ describe('EmployeeService', () => {
   });
 
   it('should be created', () => {
-    const service: EmployeeService = TestBed.get(EmployeeService);
-    expect(service).toBeTruthy();
+    const employeeService: EmployeeService = TestBed.get(EmployeeService);
+    expect(employeeService).toBeTruthy();
   });
 
   describe('GET Employees', () => {
@@ -55,20 +55,20 @@ describe('EmployeeService', () => {
 
   describe('POST Employees', () => {
     it('should return an Observable<Employee[]>', () => {
-      const Employee = {
+      const employeeObj = {
         firstName: 'matheus',
         lastName: 'geiger',
         participation: 1
       };
 
-      service.addEmployee(Employee).subscribe(employee => {
-        expect(employee).toEqual(Employee)
+      service.addEmployee(employeeObj).subscribe(employee => {
+        expect(employee).toEqual(employeeObj);
       });
 
       const req = httpMock.expectOne(`http://localhost:3001/api/employees/`);
       expect(req.request.method).toBe('POST');
-      expect(req.request.body).toEqual(Employee);
-      req.flush(Employee);
+      expect(req.request.body).toEqual(employeeObj);
+      req.flush(employeeObj);
     });
   });
 
