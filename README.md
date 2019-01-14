@@ -1,6 +1,8 @@
 
 # Client view responsible to show employees list and chart from values provided from api
 
+[Demo](http://ec2-3-16-29-88.us-east-2.compute.amazonaws.com:8080/)
+
 ## OPERATION
 
 This client viewer has been developed using angular framework, divided in four components:
